@@ -31,7 +31,11 @@ RUN buildDeps='curl ca-certificates xz-utils' \
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
 # Install rsync for deployment
-RUN apt-get update && apt-get install -y openssh-client rsync bzip2 \
+RUN apt-get update && apt-get install -y \
+  openssh-client \
+  rsync \
+  bzip2 \
+  python \
   && rm -r /var/lib/apt/lists/*
 
 # Global install gulp and bower
