@@ -46,7 +46,7 @@ RUN npm install -g gulp grunt bower phantomjs && \
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #install mysql pdo
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql pcntl
 
 RUN apt-get purge -y --auto-remove $buildDeps
 
