@@ -39,7 +39,7 @@ RUN apt-get update && apt-get install -y \
   && rm -r /var/lib/apt/lists/*
 
 # Global install gulp and bower
-RUN npm set progress=false \
+RUN npm set progress=false && \
   npm install -g gulp grunt bower phantomjs && \
   echo '{ "allow_root": true }' > /root/.bowerrc
 
