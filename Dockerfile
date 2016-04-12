@@ -19,7 +19,7 @@ RUN set -ex \
 
 ENV NODE_VERSION 0.12.12
 
-RUN buildDeps='curl ca-certificates xz-utils' \
+RUN buildDeps='curl ca-certificates xz-utils phpunit' \
 	&& set -x \
 	&& apt-get update && apt-get install -y $buildDeps --no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/* \
