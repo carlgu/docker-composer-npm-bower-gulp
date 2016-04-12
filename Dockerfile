@@ -39,6 +39,7 @@ RUN apt-get update && apt-get install -y \
   libmcrypt-dev \
   php5-mcrypt \
   php5-mysql \
+  php5-curl \
   && rm -r /var/lib/apt/lists/*
 
 # Global install gulp and bower
@@ -50,7 +51,7 @@ RUN npm set progress=false && \
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #install mysql pdo
-RUN docker-php-ext-install gd pdo pdo_mysql pcntl mcrypt mysqli mysql
+RUN docker-php-ext-install gd pdo pdo_mysql pcntl mcrypt mysqli mysql curl
 
 #install phpcs
 RUN composer global require "squizlabs/php_codesniffer=2.5.0"
