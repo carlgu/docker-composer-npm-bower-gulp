@@ -36,6 +36,8 @@ RUN apt-get update && apt-get install -y \
   rsync \
   bzip2 \
   python \
+  libmcrypt-dev \
+  php5-mcrypt \
   && rm -r /var/lib/apt/lists/*
 
 # Global install gulp and bower
