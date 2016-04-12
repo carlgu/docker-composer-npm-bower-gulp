@@ -38,6 +38,7 @@ RUN apt-get update && apt-get install -y \
   python \
   libmcrypt-dev \
   php5-mcrypt \
+  php5-mysql \
   && rm -r /var/lib/apt/lists/*
 
 # Global install gulp and bower
