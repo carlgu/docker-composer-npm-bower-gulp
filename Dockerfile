@@ -45,6 +45,7 @@ RUN apt-get update && apt-get install -y \
 # Global install gulp and bower
 RUN npm set progress=false && \
   npm install -g gulp grunt bower phantomjs && \
+  printf '\n%s' 'registry = http://nexus.lynxsolutions.eu/repository/npm/' >> /root/.npmrc && \
   echo '{ "allow_root": true }' > /root/.bowerrc
 
 # Binary may be called nodejs instead of node
