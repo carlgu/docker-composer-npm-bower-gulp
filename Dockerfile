@@ -52,7 +52,7 @@ RUN npm set progress=false && \
 RUN ln -s /usr/bin/nodejs /usr/bin/node
 
 #install mysql pdo
-RUN docker-php-ext-install gd pdo pdo_mysql pcntl mcrypt mysqli mysql
+RUN docker-php-ext-install gd pdo pdo_mysql pcntl mcrypt mysqli
 
 #install phpcs
 RUN composer global require "squizlabs/php_codesniffer=2.5.0"
