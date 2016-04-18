@@ -59,8 +59,6 @@ RUN composer global require "squizlabs/php_codesniffer=2.5.0"
 
 RUN apt-get purge -y --auto-remove $buildDeps
 
-ENV SHELL /bin/bash
-
 # Set correct entrypoint
-CMD ["bash"]
-ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/bin/bash"]
+ENTRYPOINT []
