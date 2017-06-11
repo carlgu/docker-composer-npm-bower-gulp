@@ -30,6 +30,9 @@ RUN buildDeps='curl ca-certificates xz-utils phpunit' \
 	&& tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
 	&& rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
 
+# Latest Git version
+RUN echo "deb http://ftp.us.debian.org/debian testing main contrib non-free" >> /etc/apt/sources.list
+
 # Install rsync for deployment
 RUN apt-get update && apt-get install -y \
   openssh-client \
@@ -40,6 +43,7 @@ RUN apt-get update && apt-get install -y \
   php5-mcrypt \
   php5-mysql \
   php5-curl \
+  git \
   && rm -r /var/lib/apt/lists/*
 
 # Global install gulp and bower
