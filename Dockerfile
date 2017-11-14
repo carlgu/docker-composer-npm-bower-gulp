@@ -20,7 +20,7 @@ RUN set -ex \
     gpg --keyserver ha.pool.sks-keyservers.net --recv-keys "$key"; \
   done
 
-ENV NODE_VERSION 0.12.18
+ENV NODE_VERSION 8.9.1
 
 RUN buildDeps='curl ca-certificates xz-utils phpunit' \
 	&& set -x \
