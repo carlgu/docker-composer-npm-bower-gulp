@@ -51,18 +51,11 @@ RUN apt-get update && apt-get install -y \
 
 # Global install gulp and bower
 RUN npm set progress=false && \
-  npm install -g gulp grunt bower phantomjs && \
-  printf '\n%s' 'registry = http://nexus.lynxsolutions.eu/repository/npm/' >> /root/.npmrc && \
+  npm install -g gulp grunt bower && \
   echo '{ "allow_root": true }' > /root/.bowerrc
 
 # Binary may be called nodejs instead of node
 RUN ln -s /usr/bin/nodejs /usr/bin/node
-
-#install mysql pdo
-RUN docker-php-ext-install gd pdo pdo_mysql pcntl mcrypt mysqli
-
-#install phpcs
-RUN composer global require "squizlabs/php_codesniffer=2.5.0"
 
 RUN apt-get purge -y --auto-remove $buildDeps
 
