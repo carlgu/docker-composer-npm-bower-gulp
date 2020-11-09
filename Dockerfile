@@ -11,21 +11,25 @@ RUN apk add --no-cache \
   php7-pecl-mcrypt \
   php7-pdo_mysql \
   php7-curl \
-  php7-gd \
   git \
   gnupg \
   --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
 
+# Download PHP Extension installer
+ADD https://raw.githubusercontent.com/mlocati/docker-php-extension-installer/master/install-php-extensions /usr/local/bin/
+
+# Set permissions and install PHP GD extension
+RUN chmod +x /usr/local/bin/install-php-extensions && \
+    sync && \
+    install-php-extensions gd
 
 # Global install gulp and bower
 RUN npm set progress=false && \
   npm install -g gulp grunt bower && \
   echo '{ "allow_root": true }' > /root/.bowerrc
 
-# Binary may be called nodejs instead of node
-#RUN ln -s /usr/bin/nodejs /usr/bin/node
-
-#RUN apt-get purge -y --auto-remove $buildDeps
+# Clear APK Cache
+RUN apk cache clean
 
 # Set correct entrypoint
 CMD ["/bin/bash"]
