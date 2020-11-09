@@ -28,9 +28,6 @@ RUN npm set progress=false && \
   npm install -g gulp grunt bower && \
   echo '{ "allow_root": true }' > /root/.bowerrc
 
-# Clear APK Cache
-RUN apk cache clean
-
 # Set correct entrypoint
 CMD ["/bin/bash"]
 ENTRYPOINT []
