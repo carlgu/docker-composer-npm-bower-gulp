@@ -11,6 +11,7 @@ RUN apk add --no-cache \
   php7-pecl-mcrypt \
   php7-pdo_mysql \
   php7-curl \
+  php7-gd \
   git \
   gnupg \
   --repository http://dl-cdn.alpinelinux.org/alpine/v3.7/main/ nodejs=8.9.3-r1
